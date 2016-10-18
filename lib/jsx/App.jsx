@@ -23,6 +23,9 @@ export default class App  extends Component {
         history: true,
         center: true,
 
+        minScale: 1,
+        maxScale: 1,
+
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
         // More info https://github.com/hakimel/reveal.js#dependencies
@@ -37,7 +40,9 @@ export default class App  extends Component {
       });
 
   }
-
+  themeClickHandler(styleCSS){
+    document.getElementById('theme').setAttribute('href','css/theme/'+styleCSS+'.css'); return false;    
+  }
 
 	render() {
 
@@ -48,7 +53,7 @@ export default class App  extends Component {
 
     <div className="reveal">
 
-      <!-- Any section element inside of this container is displayed as a slide -->
+      { /*<!-- Any section element inside of this container is displayed as a slide -->  */ }
       <div className="slides">
         <section>
           <h1>Reveal.js</h1>
@@ -65,15 +70,15 @@ export default class App  extends Component {
           </p>
         </section>
 
-        <!-- Example of nested vertical slides -->
+        { /* <!-- Example of nested vertical slides --> */ }
         <section>
           <section>
             <h2>Vertical Slides</h2>
             <p>Slides can be nested inside of each other.</p>
             <p>Use the <em>Space</em> key to navigate through all slides.</p>
-            <br>
+            <br/>
             <a href="#" className="navigate-down">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
             </a>
           </section>
           <section>
@@ -83,9 +88,9 @@ export default class App  extends Component {
           <section>
             <h2>Basement Level 2</h2>
             <p>That's it, time to go back up.</p>
-            <br>
+            <br/>
             <a href="#/2">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style={{transform: 'rotate(180deg)', WebkitTransform: 'rotate(180deg)'}} />
             </a>
           </section>
         </section>
@@ -158,7 +163,7 @@ export default class App  extends Component {
         <section id="transitions">
           <h2>Transition Styles</h2>
           <p>
-            You can select from different transitions, like: <br>
+            You can select from different transitions, like: <br/>
             <a href="?transition=none#/transitions">None</a> -
             <a href="?transition=fade#/transitions">Fade</a> -
             <a href="?transition=slide#/transitions">Slide</a> -
@@ -171,19 +176,19 @@ export default class App  extends Component {
         <section id="themes">
           <h2>Themes</h2>
           <p>
-            reveal.js comes with a few themes built in: <br>
-            <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+            reveal.js comes with a few themes built in: <br/>
+            { /* <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. --> */ }
+            <a href="#" onClick={this.themeClickHandler.bind(this,"black")}>Black (default)</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"white")}>White</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"league")}>League</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"sky")}>Sky</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"beige")}>Beige</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"simple")}>Simple</a> <br/>
+            <a href="#" onClick={this.themeClickHandler.bind(this,"serif")}>Serif</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"blood")}>Blood</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"night")}>Night</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"moon")}>Moon</a> -
+            <a href="#" onClick={this.themeClickHandler.bind(this,"solarized")}>Solarized</a>
           </p>
         </section>
 
@@ -194,7 +199,7 @@ export default class App  extends Component {
               Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
             </p>
             <a href="#" className="navigate-down">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
             </a>
           </section>
           <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
@@ -203,12 +208,12 @@ export default class App  extends Component {
           </section>
           <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
             <h2>Tiled Backgrounds</h2>
-            <pre><code className="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+            <pre><code className="hljs" style={{wordWrap: 'break-word'}}>&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
           </section>
           <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-            <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+            <div style={{backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#fff', padding: '20px'}}>
               <h2>Video Backgrounds</h2>
-              <pre><code className="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+              <pre><code className="hljs" style={{wordWrap: 'break-word'}}>&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
             </div>
           </section>
           <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
@@ -221,7 +226,7 @@ export default class App  extends Component {
           <p>
             Different background transitions are available via the backgroundTransition option. This one's called "zoom".
           </p>
-          <pre><code className="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+          <pre>{`<code className="hljs"> Reveal.configure({ backgroundTransition: 'zoom' })</code>`}</pre>
         </section>
 
         <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
@@ -229,12 +234,12 @@ export default class App  extends Component {
           <p>
             You can override background transitions per-slide.
           </p>
-          <pre><code className="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+          <pre>{`<code className="hljs" style={{wordWrap: 'break-word'}}>&lt;section data-background-transition="zoom"&gt;</code>`}</pre>
         </section>
 
         <section>
           <h2>Pretty Code</h2>
-          <pre><code className="hljs" data-trim contenteditable>
+          <pre>{`<code className="hljs" data-trim contenteditable>
 function linkify( selector ) {
   if( supports3DTransforms ) {
 
@@ -249,7 +254,7 @@ function linkify( selector ) {
     }
   }
 }
-          </code></pre>
+          </code> `}</pre>
           <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
         </section>
 
@@ -335,7 +340,7 @@ function linkify( selector ) {
         <section>
           <h2>Export to PDF</h2>
           <p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-          <iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+          <iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" style={{border:'3px solid #666', marginBottom:'5px', maxWidth: '100%'}} allowFullScreen> </iframe>
         </section>
 
         <section>
@@ -352,11 +357,11 @@ function linkify( selector ) {
           <p>
             Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
           </p>
-          <pre><code className="javascript" data-trim contenteditable style="font-size: 18px;">
+          <pre>{` <code className="javascript" data-trim contenteditable style={{fontSize: '18px'}}>
 Reveal.addEventListener( 'customevent', function() {
   console.log( '"customevent" has fired' );
 } );
-          </code></pre>
+          </code> `}</pre>
         </section>
 
         <section>
@@ -377,10 +382,10 @@ Reveal.addEventListener( 'customevent', function() {
           </ul>
         </section>
 
-        <section style="text-align: left;">
+        <section style={{textAlign: 'left'}}>
           <h1>THE END</h1>
           <p>
-            - <a href="http://slides.com">Try the online editor</a> <br>
+            - <a href="http://slides.com">Try the online editor</a> <br/>
             - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
           </p>
         </section>

@@ -14,6 +14,6 @@ import App from '../lib/jsx/App.jsx';
 Meteor.startup(() => {
 
   render(<App />, document.getElementById('app'));
-
+console.log("HI");
 });
 
