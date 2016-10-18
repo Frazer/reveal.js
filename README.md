@@ -1,4 +1,4 @@
-# meteor-react-nav
+# meteor-revealJS
 
 
 to run the demo, clone this repo
@@ -16,4 +16,9 @@ meteor
 in the directory where you cloned this.
 
 
- inspired from  https://codepen.io/trey/post/tabbed-navigation-react
+Things to fix:
+Hot loading of themes
+MarkDown support
+
+Speaker notes view
+Slide overview view
