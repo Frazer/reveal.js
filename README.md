@@ -26,7 +26,7 @@ in the directory where you cloned this.
 
 And, as this was a quick hack:
 
-1. I had to remove   position: relative;  from
+I had to remove   position: relative;  from
 
 .reveal {
   position: relative;
@@ -38,6 +38,7 @@ And, as this was a quick hack:
 
 
 and  this was needed:
+
 2. Reveal.initialize({
  
  	...
