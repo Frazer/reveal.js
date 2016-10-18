@@ -16,12 +16,12 @@ meteor
 in the directory where you cloned this.
 
 
-Things to fix:
-Hot loading of themes
-MarkDown support
 
-Speaker notes view
-Slide overview view
+# Things to fix:
+1. Hot loading of themes
+2. MarkDown support
+3. Speaker notes view
+4. Slide overview view
 
 
 And, as this was a quick hack:
@@ -1200,3 +1200,10 @@ Some reveal.js features, like external Markdown and speaker notes, require that 
 MIT licensed
 
 Copyright (C) 2016 Hakim El Hattab, http://hakim.se
+=======
+# Things to fix:
+1. Hot loading of themes
+2. MarkDown support
+3. Speaker notes view
+4. Slide overview view
+>>>>>>> cc5800affe66bf7bf1d16e268e362d7ed7630e60
