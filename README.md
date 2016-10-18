@@ -39,7 +39,7 @@ I had to remove   position: relative;  from
 
 and  this was needed:
 
-2. Reveal.initialize({
+Reveal.initialize({
  
  	...
   	minScale: 1,
