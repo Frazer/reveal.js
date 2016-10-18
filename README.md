@@ -16,9 +16,8 @@ meteor
 in the directory where you cloned this.
 
 
-Things to fix:
-Hot loading of themes
-MarkDown support
-
-Speaker notes view
-Slide overview view
+# Things to fix:
+1. Hot loading of themes
+2. MarkDown support
+3. Speaker notes view
+4. Slide overview view
