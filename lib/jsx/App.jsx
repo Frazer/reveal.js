@@ -249,7 +249,7 @@ export default class App  extends Component {
           <p>
             Different background transitions are available via the backgroundTransition option. This one's called "zoom".
           </p>
-          <pre>{`<code className="hljs"> Reveal.configure({ backgroundTransition: 'zoom' })</code>`}</pre>
+          <pre><code className="hljs">{`Reveal.configure({ backgroundTransition: 'zoom' })`}</code></pre>
         </section>
 
         <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
@@ -257,13 +257,12 @@ export default class App  extends Component {
           <p>
             You can override background transitions per-slide.
           </p>
-          <pre>{`<code className="hljs" style={{wordWrap: 'break-word'}}>&lt;section data-background-transition="zoom"&gt;</code>`}</pre>
+          <pre><code className="hljs" style={{wordWrap: 'break-word'}}>{`<section data-background-transition="zoom">`}</code></pre>
         </section>
 
         <section>
           <h2>Pretty Code</h2>
-          <pre>{`<code className="hljs" data-trim contenteditable>
-function linkify( selector ) {
+          <pre><code className="hljs" data-trim >{`function linkify( selector ) {
   if( supports3DTransforms ) {
 
     var nodes = document.querySelectorAll( selector );
@@ -276,8 +275,7 @@ function linkify( selector ) {
       }
     }
   }
-}
-          </code> `}</pre>
+}`}</code></pre>
           <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
         </section>
 
@@ -380,11 +378,9 @@ function linkify( selector ) {
           <p>
             Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
           </p>
-          <pre>{` <code className="javascript" data-trim contenteditable style={{fontSize: '18px'}}>
-Reveal.addEventListener( 'customevent', function() {
+          <pre><code className="javascript" data-trim  style={{fontSize: '18px'}}>{`Reveal.addEventListener( 'customevent', function() {
   console.log( '"customevent" has fired' );
-} );
-          </code> `}</pre>
+} );`}</code></pre>
         </section>
 
         <section>
