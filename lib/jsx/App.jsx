@@ -12,8 +12,22 @@ export default class App  extends Component {
 		this.state = {
  		};
 
+
 	}
 
+        
+  componentWillMount () {
+    function loadScript() {
+        tempStyleSheet = document.createElement('link');
+        tempStyleSheet.rel= 'stylesheet';
+        tempStyleSheet.href= '/css/theme/black.css';
+        tempStyleSheet.type = 'text/css';
+        tempStyleSheet.id = 'dynamicStyleSheet';
+        document.body.appendChild(tempStyleSheet);
+        //this.dynamicStyleSheet = document.body.getElementById("dynamicStyleSheet");
+    }
+    loadScript();
+  }
 
   componentDidMount() {
       // More info https://github.com/hakimel/reveal.js#configuration     
@@ -40,18 +54,28 @@ export default class App  extends Component {
       });
 
   }
-  themeClickHandler(styleCSS){
-    document.getElementById('theme').setAttribute('href','css/theme/'+styleCSS+'.css'); return false;    
+  themeClickHandler(clickEvent, styleCSS){
+
+    tempStyleSheet = document.createElement('link');
+    tempStyleSheet.rel= 'stylesheet';
+    tempStyleSheet.href= '/css/theme/'+styleCSS+'.css';
+    tempStyleSheet.type = 'text/css';
+    tempStyleSheet.id = 'dynamicStyleSheet';
+    document.body.appendChild(tempStyleSheet);
+
+    //ReactDOM.findDOMNode(this.refs.theme).setAttribute('href','/css/theme/'+styleCSS+'.css'); 
+    //document.getElementById('theme').setAttribute('href','/css/theme/'+styleCSS+'.css'); 
+    clickEvent.preventDefault();
   }
 
 	render() {
-
 
   	return (
 
 
 
     <div className="reveal">
+
 
       { /*<!-- Any section element inside of this container is displayed as a slide -->  */ }
       <div className="slides">
@@ -178,17 +202,16 @@ export default class App  extends Component {
           <p>
             reveal.js comes with a few themes built in: <br/>
             { /* <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. --> */ }
-            <a href="#" onClick={this.themeClickHandler.bind(this,"black")}>Black (default)</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"white")}>White</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"league")}>League</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"sky")}>Sky</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"beige")}>Beige</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"simple")}>Simple</a> <br/>
-            <a href="#" onClick={this.themeClickHandler.bind(this,"serif")}>Serif</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"blood")}>Blood</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"night")}>Night</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"moon")}>Moon</a> -
-            <a href="#" onClick={this.themeClickHandler.bind(this,"solarized")}>Solarized</a>
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "black")}>Black (default)</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "league")}>League</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "sky")}>Sky</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "beige")}>Beige</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "simple")}>Simple</a> <br/>
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "serif")}>Serif</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "blood")}>Blood</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "night")}>Night</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "moon")}>Moon</a> -
+            <a href="#" onClick={(clickEvent) => this.themeClickHandler(clickEvent, "solarized")}>Solarized</a>
           </p>
         </section>
 

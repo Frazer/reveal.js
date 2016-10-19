@@ -18,13 +18,12 @@ in the directory where you cloned this.
 
 
 # Things to fix:
-1. Hot loading of themes
-2. MarkDown support
-3. Speaker notes view
-4. Slide overview view
+1. MarkDown support
+2. Speaker notes view
+3. Slide overview view
 
 
-And, as this was a quick hack:
+And these styling changes were needed. As yet, I am unsure why, and what flow on effects it might have:
 
 I had to remove   position: relative;  from
 
