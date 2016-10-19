@@ -38,16 +38,19 @@ I had to remove   position: relative;  from
 
 and  this was needed:
 
+```
 Reveal.initialize({
  
  	...
   	minScale: 1,
  	maxScale: 1
  });
+```
 
 
 
 
+Below is the README from the original project:
 
 -----------------------------
 
