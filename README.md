@@ -18,7 +18,7 @@ in the directory where you cloned this.
 
 
 # Things to fix:
-1. MarkDown support
+1. MarkDown support  -- perhaps fixed with  https://jonschlinkert.github.io/remarkable/demo/
 2. Speaker notes view
 3. Slide overview view
 
