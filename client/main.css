@@ -3,3 +3,90 @@
 .reveal.center.slide.overview{
   min-height: 400px !important;
 }
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1199px) { 
+  .slides{
+	width: 760px; 
+    height: 600px;
+    transform: scale(0.9);
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 768px) and (max-width: 960px) { 
+  .slides{
+    width: 767px  !important ;
+    height: 380px;
+    transform: scale(0.8);
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 768px) and (max-width: 880px) { 
+  .slides{
+    width: 730px  !important ;
+    height: 380px;
+    transform: scale(0.7);
+
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 641px) and (max-width: 767px) { 
+  .slides{
+    width: 750px  !important ;
+    height: 380px;
+    transform: scale(0.7);
+
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (min-width: 481px) and (max-width: 640px) { 
+  .slides{
+    width: 600px  !important ;
+    height: 380px;
+    transform: scale(0.7);
+    position:relative !important;
+    left: -40px !important;
+    top: -60px !important;
+
+
+  }
+}
+
+/* Landscape phones and down */
+@media (min-width: 401px) and (max-width: 480px) { 
+  .slides{
+	width: 480px !important ;
+    height: 240px; 
+    transform: scale(0.7);
+    position:relative !important;
+    left: -80px !important;
+    top: -60px !important;
+
+  }
+}
+
+/* Landscape phones and down */
+@media (min-width: 321px) and (max-width: 400px) { 
+  .slides{
+	width: 400px !important ;
+    height: 240px; 
+    transform: scale(0.5);
+    position:relative !important;
+    left: -60px !important;
+    top: -60px !important;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 320px) { 
+  .slides{
+	width: 400px !important ;
+    height: 240px; 
+    zoom:0.4;
+
+  }
+}
+

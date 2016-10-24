@@ -22,7 +22,7 @@ in the directory where you cloned this.
 2. Code Highlighting not always looking good - see slide 13 Pretty Code  (also, I removed contentEditable from 2 code sections as this property was just giving warnings and not working)
 
 2. Speaker notes view  -  Safari and Firefox: works, but slides are too big for their display window.  
-3. Slide overview view - navigation works, but slides are fixed size and not responding to window resizing
+3. Slide overview view - navigation works, but slides are fixed size and not responding to window resizing - I've added media requests to change the size of the slide for smaller screens, but its not responsive or sensible, and totally fails with lanscape view
 
 
 And these styling changes were needed. As yet, I am unsure why, and what flow on effects it might have:
