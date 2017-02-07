@@ -26,7 +26,7 @@
 	var Reveal;
 
 	// The reveal.js version
-	var VERSION = '3.3.0';
+	var VERSION = '3.4.1';
 
 	var SLIDES_SELECTOR = '.slides section',
 		HORIZONTAL_SLIDES_SELECTOR = '.slides>section',
@@ -598,14 +598,14 @@
 
 		// Dimensions of the PDF pages
 		var pageWidth = Math.floor( slideSize.width * ( 1 + config.margin ) ),
-			pageHeight = Math.floor( slideSize.height * ( 1 + config.margin  ) );
+			pageHeight = Math.floor( slideSize.height * ( 1 + config.margin ) );
 
 		// Dimensions of slides within the pages
 		var slideWidth = slideSize.width,
 			slideHeight = slideSize.height;
 
 		// Let the browser know what page size we want to print
-		injectStyleSheet( '@page{size:'+ pageWidth +'px '+ pageHeight +'px; margin: 0;}' );
+		injectStyleSheet( '@page{size:'+ pageWidth +'px '+ pageHeight +'px; margin: 0 0 -1px 0;}' );
 
 		// Limit the size of certain elements to the dimensions of the slide
 		injectStyleSheet( '.reveal section>img, .reveal section>video, .reveal section>iframe{max-width: '+ slideWidth +'px; max-height:'+ slideHeight +'px}' );
@@ -713,6 +713,9 @@
 		toArray( dom.wrapper.querySelectorAll( SLIDES_SELECTOR + ' .fragment' ) ).forEach( function( fragment ) {
 			fragment.classList.add( 'visible' );
 		} );
+
+		// Notify subscribers that the PDF layout is good to go
+		dispatchEvent( 'pdf-ready' );
 
 	}
 
@@ -1600,6 +1603,9 @@
 			'<div class="spinner"></div>',
 			'<div class="viewport">',
 				'<iframe src="'+ url +'"></iframe>',
+				'<small class="viewport-inner">',
+					'<span class="x-frame-error">Unable to load iframe. This is likely due to the site\'s policy (x-frame-options).</span>',
+				'</small>',
 			'</div>'
 		].join('');
 
@@ -1622,6 +1628,28 @@
 
 	}
 
+	/**
+	 * Open or close help overlay window.
+	 *
+	 * @param {Boolean} [override] Flag which overrides the
+	 * toggle logic and forcibly sets the desired state. True means
+	 * help is open, false means it's closed.
+	 */
+	function toggleHelp( override ){
+		
+		if( typeof override === 'boolean' ) {
+			override ? showHelp( true ) : closeOverlay();
+		}
+		else {		
+			if( dom.overlay ) {
+				closeOverlay();
+			}
+			else {
+				showHelp( true );
+			}
+		}
+	}
+	
 	/**
 	 * Opens an overlay window with help material.
 	 */
@@ -4107,12 +4135,7 @@
 
 		// Check if the pressed key is question mark
 		if( event.shiftKey && event.charCode === 63 ) {
-			if( dom.overlay ) {
-				closeOverlay();
-			}
-			else {
-				showHelp( true );
-			}
+			toggleHelp();
 		}
 
 	}
@@ -4812,6 +4835,7 @@
 
 		// Shows a help overlay with keyboard shortcuts
 		showHelp: showHelp,
+		toggleHelp: toggleHelp,
 
 		// Forces an update in slide layout
 		layout: layout,
