@@ -1630,13 +1630,23 @@
 
 	/**
 	 * Open or close help overlay window.
+	 *
+	 * @param {Boolean} [override] Flag which overrides the
+	 * toggle logic and forcibly sets the desired state. True means
+	 * help is open, false means it's closed.
 	 */
-	function toggleHelp(){
-		if( dom.overlay ) {
-			closeOverlay();
+	function toggleHelp( override ){
+		
+		if( typeof override === 'boolean' ) {
+			override ? showHelp( true ) : closeOverlay();
 		}
-		else {
-			showHelp( true );
+		else {		
+			if( dom.overlay ) {
+				closeOverlay();
+			}
+			else {
+				showHelp( true );
+			}
 		}
 	}
 	
